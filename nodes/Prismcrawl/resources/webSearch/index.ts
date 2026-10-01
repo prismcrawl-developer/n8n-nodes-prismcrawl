@@ -1,24 +1,24 @@
 import type { INodeProperties } from 'n8n-workflow';
 import { splitResults } from '../../shared/output';
-import { googleSearchDescription } from './search';
+import { webSearchSearchGoogleDescription } from './searchGoogle';
 
-const showOnlyForGoogle = {
-	resource: ['google'],
+const showOnlyForWebSearch = {
+	resource: ['webSearch'],
 };
 
-export const googleDescription: INodeProperties[] = [
+export const webSearchDescription: INodeProperties[] = [
 	{
 		displayName: 'Operation',
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
 		displayOptions: {
-			show: showOnlyForGoogle,
+			show: showOnlyForWebSearch,
 		},
 		options: [
 			{
-				name: 'Search',
-				value: 'search',
+				name: 'Search Google',
+				value: 'searchGoogle',
 				action: 'Search google',
 				description: 'Get Google search results (1 credit per request)',
 				routing: {
@@ -30,7 +30,7 @@ export const googleDescription: INodeProperties[] = [
 				},
 			},
 		],
-		default: 'search',
+		default: 'searchGoogle',
 	},
-	...googleSearchDescription,
+	...webSearchSearchGoogleDescription,
 ];

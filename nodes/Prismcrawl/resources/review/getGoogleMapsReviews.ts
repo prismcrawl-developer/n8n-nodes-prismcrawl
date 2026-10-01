@@ -1,12 +1,12 @@
 import type { INodeProperties } from 'n8n-workflow';
 import { simplifyProperty, zeroTraceOption } from '../../shared/output';
 
-const showOnlyForGoogleMapsGetReviews = {
-	operation: ['getReviews'],
-	resource: ['googleMaps'],
+const showOnlyForGetGoogleMapsReviews = {
+	operation: ['getGoogleMapsReviews'],
+	resource: ['review'],
 };
 
-export const googleMapsGetReviewsDescription: INodeProperties[] = [
+export const reviewGetGoogleMapsReviewsDescription: INodeProperties[] = [
 	{
 		displayName: 'Place ID',
 		name: 'placeId',
@@ -14,7 +14,7 @@ export const googleMapsGetReviewsDescription: INodeProperties[] = [
 		required: true,
 		default: '',
 		placeholder: 'e.g. ChIJ...',
-		displayOptions: { show: showOnlyForGoogleMapsGetReviews },
+		displayOptions: { show: showOnlyForGetGoogleMapsReviews },
 		description: 'The place_id from a Google Maps search result (not the data_id)',
 		routing: { send: { type: 'body', property: 'id' } },
 	},
@@ -24,7 +24,7 @@ export const googleMapsGetReviewsDescription: INodeProperties[] = [
 		type: 'number',
 		typeOptions: { minValue: 1, maxValue: 10 },
 		default: 10,
-		displayOptions: { show: showOnlyForGoogleMapsGetReviews },
+		displayOptions: { show: showOnlyForGetGoogleMapsReviews },
 		description: 'Max number of reviews per page. Google may return fewer.',
 		routing: { send: { type: 'body', property: 'limit' } },
 	},
@@ -33,7 +33,7 @@ export const googleMapsGetReviewsDescription: INodeProperties[] = [
 		name: 'returnAll',
 		type: 'boolean',
 		default: false,
-		displayOptions: { show: showOnlyForGoogleMapsGetReviews },
+		displayOptions: { show: showOnlyForGetGoogleMapsReviews },
 		description: 'Whether to return all results or only up to a given limit',
 		routing: { send: { paginate: '={{ $value }}' } },
 	},
@@ -43,17 +43,17 @@ export const googleMapsGetReviewsDescription: INodeProperties[] = [
 		type: 'number',
 		typeOptions: { minValue: 1 },
 		default: 5,
-		displayOptions: { show: { ...showOnlyForGoogleMapsGetReviews, returnAll: [true] } },
+		displayOptions: { show: { ...showOnlyForGetGoogleMapsReviews, returnAll: [true] } },
 		description: 'Stop after this many pages even if more exist. Each page costs 1 credit.',
 	},
-	simplifyProperty(showOnlyForGoogleMapsGetReviews),
+	simplifyProperty(showOnlyForGetGoogleMapsReviews),
 	{
 		displayName: 'Options',
 		name: 'options',
 		type: 'collection',
 		placeholder: 'Add Option',
 		default: {},
-		displayOptions: { show: showOnlyForGoogleMapsGetReviews },
+		displayOptions: { show: showOnlyForGetGoogleMapsReviews },
 		options: [
 			{
 				displayName: 'Country',

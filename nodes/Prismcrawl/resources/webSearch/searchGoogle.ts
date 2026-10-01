@@ -1,13 +1,13 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { countryOptions, googleDomainOptions, languageOptions } from '../../shared/locales';
+import { countryOptions, languageOptions } from '../../shared/locales';
 import { simplifyProperty, zeroTraceOption } from '../../shared/output';
 
-const showOnlyForGoogleSearch = {
-	operation: ['search'],
-	resource: ['google'],
+const showOnlyForSearchGoogle = {
+	operation: ['searchGoogle'],
+	resource: ['webSearch'],
 };
 
-export const googleSearchDescription: INodeProperties[] = [
+export const webSearchSearchGoogleDescription: INodeProperties[] = [
 	{
 		displayName: 'Query',
 		name: 'query',
@@ -15,18 +15,18 @@ export const googleSearchDescription: INodeProperties[] = [
 		required: true,
 		default: '',
 		placeholder: 'e.g. best espresso machines',
-		displayOptions: { show: showOnlyForGoogleSearch },
+		displayOptions: { show: showOnlyForSearchGoogle },
 		description: 'The search query',
 		routing: { send: { type: 'body', property: 'query' } },
 	},
-	simplifyProperty(showOnlyForGoogleSearch),
+	simplifyProperty(showOnlyForSearchGoogle),
 	{
 		displayName: 'Options',
 		name: 'options',
 		type: 'collection',
 		placeholder: 'Add Option',
 		default: {},
-		displayOptions: { show: showOnlyForGoogleSearch },
+		displayOptions: { show: showOnlyForSearchGoogle },
 		options: [
 			{
 				displayName: 'Country',
@@ -61,9 +61,10 @@ export const googleSearchDescription: INodeProperties[] = [
 			{
 				displayName: 'Google Domain',
 				name: 'googleDomain',
-				type: 'options',
-				options: googleDomainOptions,
+				type: 'string',
 				default: 'google.com',
+				placeholder: 'e.g. google.co.uk',
+				description: 'The Google domain to search on',
 				routing: { send: { type: 'body', property: 'google_domain' } },
 			},
 			{

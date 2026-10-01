@@ -75,8 +75,7 @@ export const simplifyProperty = (show: NonNullable<IDisplayOptions['show']>): IN
 	type: 'boolean',
 	default: true,
 	displayOptions: { show },
-	description:
-		'Whether to return one item per result instead of the full API response (which includes search parameters, pagination info, and SERP features)',
+	description: 'Whether to return a simplified version of the response instead of the raw data',
 });
 
 export const zeroTraceOption: INodeProperties = {

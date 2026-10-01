@@ -2,12 +2,12 @@ import type { INodeProperties } from 'n8n-workflow';
 import { countryOptions, languageOptions } from '../../shared/locales';
 import { simplifyProperty, zeroTraceOption } from '../../shared/output';
 
-const showOnlyForGoogleMapsSearch = {
-	operation: ['search'],
-	resource: ['googleMaps'],
+const showOnlyForSearchGoogleMaps = {
+	operation: ['searchGoogleMaps'],
+	resource: ['place'],
 };
 
-export const googleMapsSearchDescription: INodeProperties[] = [
+export const placeSearchGoogleMapsDescription: INodeProperties[] = [
 	{
 		displayName: 'Query',
 		name: 'query',
@@ -15,7 +15,7 @@ export const googleMapsSearchDescription: INodeProperties[] = [
 		required: true,
 		default: '',
 		placeholder: 'e.g. coffee shops',
-		displayOptions: { show: showOnlyForGoogleMapsSearch },
+		displayOptions: { show: showOnlyForSearchGoogleMaps },
 		description: 'A place, business, product, or category to search for',
 		routing: { send: { type: 'body', property: 'query' } },
 	},
@@ -26,7 +26,7 @@ export const googleMapsSearchDescription: INodeProperties[] = [
 		required: true,
 		typeOptions: { minValue: -90, maxValue: 90, numberPrecision: 6 },
 		default: 0,
-		displayOptions: { show: showOnlyForGoogleMapsSearch },
+		displayOptions: { show: showOnlyForSearchGoogleMaps },
 		description: 'Latitude of the map center',
 		routing: { send: { type: 'body', property: 'coordinates.latitude' } },
 	},
@@ -37,18 +37,18 @@ export const googleMapsSearchDescription: INodeProperties[] = [
 		required: true,
 		typeOptions: { minValue: -180, maxValue: 180, numberPrecision: 6 },
 		default: 0,
-		displayOptions: { show: showOnlyForGoogleMapsSearch },
+		displayOptions: { show: showOnlyForSearchGoogleMaps },
 		description: 'Longitude of the map center',
 		routing: { send: { type: 'body', property: 'coordinates.longitude' } },
 	},
-	simplifyProperty(showOnlyForGoogleMapsSearch),
+	simplifyProperty(showOnlyForSearchGoogleMaps),
 	{
 		displayName: 'Options',
 		name: 'options',
 		type: 'collection',
 		placeholder: 'Add Option',
 		default: {},
-		displayOptions: { show: showOnlyForGoogleMapsSearch },
+		displayOptions: { show: showOnlyForSearchGoogleMaps },
 		options: [
 			{
 				displayName: 'Country',
