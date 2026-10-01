@@ -6,12 +6,12 @@
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": "https://www.prismcrawl.com/docs"
+				"url": "https://www.prismcrawl.com/docs?utm_source=n8n&utm_medium=integration&utm_content=credential"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://www.prismcrawl.com/docs"
+				"url": "https://www.prismcrawl.com/docs?utm_source=n8n&utm_medium=integration&utm_content=node"
 			}
 		]
 	}

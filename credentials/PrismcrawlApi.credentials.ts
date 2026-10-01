@@ -10,7 +10,8 @@ export class PrismcrawlApi implements ICredentialType {
 		dark: 'file:../nodes/Prismcrawl/prismcrawl.dark.svg',
 	};
 
-	documentationUrl = 'https://www.prismcrawl.com/docs';
+	documentationUrl =
+		'https://www.prismcrawl.com/docs?utm_source=n8n&utm_medium=integration&utm_content=credential';
 
 	properties: INodeProperties[] = [
 		{

@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"description": "n8n community node for PrismCrawl: search, maps, app catalog, product, and review data as structured JSON",
 	"license": "MIT",
-	"homepage": "https://www.prismcrawl.com/docs",
+	"homepage": "https://www.prismcrawl.com",
 	"keywords": [
 		"n8n-community-node-package",
 		"prismcrawl",
