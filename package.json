@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-prismcrawl",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "n8n community node for PrismCrawl: search, maps, app catalog, product, and review data as structured JSON",
 	"license": "MIT",
 	"homepage": "https://www.prismcrawl.com",
@@ -15,7 +15,7 @@
 	],
 	"author": {
 		"name": "PrismCrawl",
-		"email": "dev@prismcrawl.com"
+		"email": "support@prismcrawl.com"
 	},
 	"repository": {
 		"type": "git",
